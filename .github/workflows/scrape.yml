@@ -24,11 +24,14 @@ jobs:
 
     - name: Run scraping script
       run: |
-        python scrape_content.py \ "https://www.savemyexams.com/a-level/chemistry/edexcel/17/revision-notes/1-physical-chemistry/1-1-atomic-structure/1-1-1-structure-of-the-atom/" \ "div.row.g-4" \ "scraped_content/content.html"
+        python scrape_content.py "https://example.com" "div.main-content" "scraped_content/content.html"
+
     - name: Commit and push changes
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
         git add .
         git commit -m "Update scraped content" || echo "No changes to commit"
-        git push
+        git push https://x-access-token:${GH_PAT}@github.com/Insertanamee/FSave.git HEAD:main
