@@ -1,17 +1,22 @@
 import os
 import markdownify
+from markdownify import MarkdownConverter
 
-def subscript_handler(element, text, convert_as_inline):
-    return f"<sub>{text}</sub>"
+class CustomMarkdownConverter(MarkdownConverter):
+    def convert_sub(self, el, text, convert_as_inline):
+        return f"<sub>{text}</sub>"
 
-def superscript_handler(element, text, convert_as_inline):
-    return f"<sup>{text}</sup>"
+    def convert_sup(self, el, text, convert_as_inline):
+        return f"<sup>{text}</sup>"
 
-def bold_handler(element, text, convert_as_inline):
-    return f"<b>{text}</b>"
+    def convert_b(self, el, text, convert_as_inline):
+        return f"<b>{text}</b>"
 
-def strikethrough_handler(element, text, convert_as_inline):
-    return f"<s>{text}</s>"
+    def convert_s(self, el, text, convert_as_inline):
+        return f"<s>{text}</s>"
+
+def custom_markdownify(html):
+    return CustomMarkdownConverter().convert(html)
 
 def convert_html_to_md(directory):
     for root, _, files in os.walk(directory):
@@ -23,15 +28,7 @@ def convert_html_to_md(directory):
                 with open(html_file_path, 'r', encoding='utf-8') as html_file:
                     html_content = html_file.read()
                 
-                # Define custom handlers
-                custom_handlers = {
-                    'sub': subscript_handler,
-                    'sup': superscript_handler,
-                    'b': bold_handler,
-                    's': strikethrough_handler
-                }
-                
-                md_content = markdownify.markdownify(html_content, heading_style="ATX", custom_handlers=custom_handlers)
+                md_content = custom_markdownify(html_content)
                 
                 with open(md_file_path, 'w', encoding='utf-8') as md_file:
                     md_file.write(md_content)
