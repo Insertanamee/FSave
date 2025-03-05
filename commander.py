@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 
 # Configuration
 INPUT_FILE = 'links.txt'
-CONSTANT = "your_constant_here"  # ← Replace with your actual constant value
+CONSTANT = "div.row.g-4"  # ← Replace with your actual constant value
 
 def execute_commands():
     try:
