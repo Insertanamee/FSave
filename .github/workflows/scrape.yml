@@ -26,15 +26,19 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests beautifulsoup4 markdownify
+        pip install requests beautifulsoup4 markdownify lxml 
 
     - name: Run scraping script
       run: |
-        python scrape_content.py "https://www.savemyexams.com/a-level/chemistry/edexcel/17/revision-notes/1-physical-chemistry/1-1-atomic-structure/1-1-1-structure-of-the-atom/" "div.row.g-4" "archived_content/content.html"
+        python extractlinks.py "https://www.savemyexams.com/a-level/biology/edexcel/a-snab/15/revision-notes/"
+        
+    - name: Scrape urls
+      run: |
+        python commander.py
 
     - name: Convert HTML to Markdown and delete original HTML
       run: |
-        python converttomarkdown.py "archived_content"
+        python converttomarkdown.py "a-level"
 
     - name: Commit and push changes
       run: |
