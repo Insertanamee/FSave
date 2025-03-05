@@ -3,16 +3,16 @@ import markdownify
 from markdownify import MarkdownConverter
 
 class CustomMarkdownConverter(MarkdownConverter):
-    def convert_sub(self, el, text, convert_as_inline):
+    def convert_sub(self, el, text, convert_as_inline, parent_tags=None):
         return f"<sub>{text}</sub>"
 
-    def convert_sup(self, el, text, convert_as_inline):
+    def convert_sup(self, el, text, convert_as_inline, parent_tags=None):
         return f"<sup>{text}</sup>"
 
-    def convert_b(self, el, text, convert_as_inline):
+    def convert_b(self, el, text, convert_as_inline, parent_tags=None):
         return f"<b>{text}</b>"
 
-    def convert_s(self, el, text, convert_as_inline):
+    def convert_s(self, el, text, convert_as_inline, parent_tags=None):
         return f"<s>{text}</s>"
 
 def custom_markdownify(html):
