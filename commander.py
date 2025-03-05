@@ -26,10 +26,9 @@ def execute_commands():
                     # Remove any remaining slashes at the end
                     path_segment = path_segment.rstrip('/')
                     # Replace directory separators with underscores if needed
-                    path_segment = path_segment.replace('/', '_')  # Optional
 
                 # Create and execute command
-                cmd = f'python scrape_content.py "{url}" "{CONSTANT}" "{path_segment}"'
+                cmd = f'python scrape_content.py "{url}" "{CONSTANT}" "{path_segment}.html"'
                 print(f"Executing: {cmd}")
                 
                 # Run command and check result
