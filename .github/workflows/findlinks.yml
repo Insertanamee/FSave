@@ -1,8 +1,6 @@
 name: find links
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight
   workflow_dispatch:     # Allow manual triggering
 
 jobs:
