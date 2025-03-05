@@ -3,20 +3,20 @@ import markdownify
 from markdownify import MarkdownConverter
 
 class CustomMarkdownConverter(MarkdownConverter):
-    def convert_sub(self, el, text, convert_as_inline, parent_tags=None):
+    def convert_sub(self, el, text, parent_tags):
         return f"<sub>{text}</sub>"
 
-    def convert_sup(self, el, text, convert_as_inline, parent_tags=None):
+    def convert_sup(self, el, text, parent_tags):
         return f"<sup>{text}</sup>"
 
-    def convert_b(self, el, text, convert_as_inline, parent_tags=None):
+    def convert_b(self, el, text, parent_tags):
         return f"<b>{text}</b>"
 
-    def convert_s(self, el, text, convert_as_inline, parent_tags=None):
+    def convert_s(self, el, text, parent_tags):
         return f"<s>{text}</s>"
 
-def custom_markdownify(html):
-    return CustomMarkdownConverter().convert(html)
+def custom_markdownify(html, **options):
+    return CustomMarkdownConverter(**options).convert(html)
 
 def convert_html_to_md(directory):
     for root, _, files in os.walk(directory):
