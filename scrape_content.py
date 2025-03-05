@@ -45,7 +45,8 @@ def download_resource(url, output_dir):
 def scrape_and_save(url, selector, output_file):
     # Create output directory
     output_dir = os.path.dirname(output_file)
-    os.makedirs(output_dir, exist_ok=True)
+    if output_dir:
+        os.makedirs(output_dir, exist_ok=True)
     
     # Fetch webpage
     response = requests.get(url)
