@@ -7,7 +7,7 @@
   + The protons have a positive charge and the neutrons have a neutral charge
 * **Negatively** **charged** electrons are found in orbitals in the empty space around the nucleus
 
-![Carbon atom structure, IGCSE & GCSE, AS & A Level Chemistry revision notes](Carbon-atom-structure-e1616074599399.png)
+![Carbon atom structure, IGCSE & GCSE, AS & A Level Chemistry revision notes](Carbon-atom-structure-e1616074599399_1.png)
 
 ***The basic structure of an atom (not to scale)***
 
@@ -24,7 +24,7 @@
 
 **Relative mass & charge of subatomic particles table**
 
-![Atomic Structure Table_Subatomic Particles, downloadable AS & A Level Chemistry revision notes](1.1-Atomic-Structure-Table_Subatomic-Particles.png)
+![Atomic Structure Table_Subatomic Particles, downloadable AS & A Level Chemistry revision notes](1.1-Atomic-Structure-Table_Subatomic-Particles_1.png)
 
 #### Examiner Tips and Tricks
 
@@ -45,6 +45,6 @@ The **relative** **mass** of an electron is **almost negligible.** The **charge*
 
 #### Examiner Tips and Tricks
 
-![Atomic structure notation, IGCSE & GCSE AS & A Level Chemistry revision notes](Atomic-structure-notation.png)
+![Atomic structure notation, IGCSE & GCSE AS & A Level Chemistry revision notes](Atomic-structure-notation_1.png)
 
 ***The mass (nucleon) and atomic (proton) number are given for each element in the Periodic Table***
