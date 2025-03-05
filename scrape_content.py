@@ -22,7 +22,8 @@ def download_resource(url, output_dir):
                     filename += '.html'
             
             # Create output directory if it doesn't exist
-            os.makedirs(output_dir, exist_ok=True)
+            if output_dir:
+                os.makedirs(output_dir, exist_ok=True)
             
             local_path = os.path.join(output_dir, filename)
             
