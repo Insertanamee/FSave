@@ -70,9 +70,15 @@ def scrape_and_save(url, selector, output_file):
         attr = 'src' if elem.name in ['img', 'script'] else 'href'
         if elem.has_attr(attr):
             absolute_url = urljoin(url, elem[attr])
-            local_filename = download_resource(absolute_url, output_dir)
-            if local_filename != absolute_url:
-                elem[attr] = local_filename
+            if elem.name == 'img' and elem['src'].startswith('data:') and elem.has_attr('data-mathml'):
+                # Replace img tag with math tag
+                mathml_content = elem['data-mathml']
+                math_tag = BeautifulSoup(mathml_content, 'html.parser')
+                elem.replace_with(math_tag)
+            else:
+                local_filename = download_resource(absolute_url, output_dir)
+                if local_filename != absolute_url:
+                    elem[attr] = local_filename
     
     # Save modified HTML
     with open(output_file, 'w', encoding='utf-8') as f:

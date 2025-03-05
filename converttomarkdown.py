@@ -12,8 +12,17 @@ class CustomMarkdownConverter(MarkdownConverter):
     def convert_b(self, el, text, parent_tags):
         return f"<b>{text}</b>"
 
+    def convert_i(self, el, text, parent_tags):
+        return f"<i>{text}</i>"
+    
+    def convert_u(self, el, text, parent_tags):
+        return f"<u>{text}</u>"
+
     def convert_s(self, el, text, parent_tags):
         return f"<s>{text}</s>"
+    
+    def convert_math(self, el, text, parent_tags):
+        return f"<math>{text}</math>"
 
 def custom_markdownify(html, **options):
     return CustomMarkdownConverter(**options).convert(html)
