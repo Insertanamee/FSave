@@ -20,5 +20,5 @@ def convert_html_to_md(directory):
                 print(f"Converted {html_file_path} to {md_file_path} and deleted the original HTML file")
 
 if __name__ == "__main__":
-    directory = input("Enter the directory path: ")
+    directory = "archived_content"
     convert_html_to_md(directory)
