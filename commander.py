@@ -15,12 +15,18 @@ def execute_commands():
 
         for url in urls:
             try:
-                # Parse URL and extract path
+                # Parse URL and extract clean path
                 parsed = urlparse(url)
-                path_segment = parsed.path.lstrip('/')
+                path_segment = parsed.path.lstrip('/').rstrip('/')
                 
+                # Handle empty path case and ensure valid filename
                 if not path_segment:
                     path_segment = 'root'
+                else:
+                    # Remove any remaining slashes at the end
+                    path_segment = path_segment.rstrip('/')
+                    # Replace directory separators with underscores if needed
+                    path_segment = path_segment.replace('/', '_')  # Optional
 
                 # Create and execute command
                 cmd = f'python scrape_content.py "{url}" "{CONSTANT}" "{path_segment}"'
