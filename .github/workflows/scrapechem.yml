@@ -1,4 +1,4 @@
-name: Scrape Website
+name: Scrape Chemistry A-Level content
 
 on:
   workflow_dispatch:     # Allow manual triggering
@@ -28,7 +28,7 @@ jobs:
 
     - name: Run scraping script
       run: |
-        python extractlinks.py "https://www.savemyexams.com/a-level/biology/edexcel/a-snab/15/revision-notes/"
+        python extractlinks.py "https://www.savemyexams.com/a-level/chemistry/edexcel/17/revision-notes/"
         
     - name: Scrape urls
       run: |

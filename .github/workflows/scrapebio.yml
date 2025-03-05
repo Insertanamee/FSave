@@ -1,4 +1,4 @@
-name: find links
+name: Scrape Biology A-Level content
 
 on:
   workflow_dispatch:     # Allow manual triggering
@@ -24,11 +24,19 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests beautifulsoup4 lxml
+        pip install requests beautifulsoup4 markdownify lxml 
 
     - name: Run scraping script
       run: |
         python extractlinks.py "https://www.savemyexams.com/a-level/biology/edexcel/a-snab/15/revision-notes/"
+        
+    - name: Scrape urls
+      run: |
+        python commander.py
+
+    - name: Convert HTML to Markdown and delete original HTML
+      run: |
+        python converttomarkdown.py "a-level"
 
     - name: Commit and push changes
       run: |
