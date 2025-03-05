@@ -30,7 +30,11 @@ jobs:
 
     - name: Run scraping script
       run: |
-        python scrape_content.py "https://www.savemyexams.com/a-level/chemistry/edexcel/17/revision-notes/1-physical-chemistry/1-1-atomic-structure/1-1-1-structure-of-the-atom/" "div.row.g-4" "scraped_content/content.html"
+        python scrape_content.py "https://www.savemyexams.com/a-level/chemistry/edexcel/17/revision-notes/1-physical-chemistry/1-1-atomic-structure/1-1-1-structure-of-the-atom/" "div.row.g-4" "archived_content/content.html"
+
+    - name: Convert HTML to Markdown and delete original HTML
+      run: |
+        python converttomarkdown.py "archived_content"
 
     - name: Commit and push changes
       run: |
