@@ -1,6 +1,12 @@
 import os
 import markdownify
 
+def subscript_handler(element, text, convert_as_inline):
+    return f"<sub>{text}</sub>"
+
+def superscript_handler(element, text, convert_as_inline):
+    return f"<sup>{text}</sup>"
+
 def convert_html_to_md(directory):
     for root, _, files in os.walk(directory):
         for file in files:
@@ -11,7 +17,13 @@ def convert_html_to_md(directory):
                 with open(html_file_path, 'r', encoding='utf-8') as html_file:
                     html_content = html_file.read()
                 
-                md_content = markdownify.markdownify(html_content, heading_style="ATX")
+                # Define custom handlers
+                custom_handlers = {
+                    'sub': subscript_handler,
+                    'sup': superscript_handler
+                }
+                
+                md_content = markdownify.markdownify(html_content, heading_style="ATX", custom_handlers=custom_handlers)
                 
                 with open(md_file_path, 'w', encoding='utf-8') as md_file:
                     md_file.write(md_content)

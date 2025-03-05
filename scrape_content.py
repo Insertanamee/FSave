@@ -7,6 +7,10 @@ from urllib.parse import urljoin, urlparse
 
 def download_resource(url, output_dir):
     try:
+        # Skip data URLs
+        if url.startswith('data:'):
+            return url
+
         response = requests.get(url, stream=True)
         if response.status_code == 200:
             # Extract filename from URL
