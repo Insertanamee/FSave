@@ -7,6 +7,12 @@ def subscript_handler(element, text, convert_as_inline):
 def superscript_handler(element, text, convert_as_inline):
     return f"<sup>{text}</sup>"
 
+def bold_handler(element, text, convert_as_inline):
+    return f"<b>{text}</b>"
+
+def strikethrough_handler(element, text, convert_as_inline):
+    return f"<s>{text}</s>"
+
 def convert_html_to_md(directory):
     for root, _, files in os.walk(directory):
         for file in files:
@@ -20,7 +26,9 @@ def convert_html_to_md(directory):
                 # Define custom handlers
                 custom_handlers = {
                     'sub': subscript_handler,
-                    'sup': superscript_handler
+                    'sup': superscript_handler,
+                    'b': bold_handler,
+                    's': strikethrough_handler
                 }
                 
                 md_content = markdownify.markdownify(html_content, heading_style="ATX", custom_handlers=custom_handlers)
