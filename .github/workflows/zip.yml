@@ -1,7 +1,25 @@
+name: zip-em
+
 on:
-  workflow_dispatch:
+  workflow_dispatch:     # Allow manual triggering
 
 jobs:
-  my_job:
-    name: deploy to staging
-    runs-on: ubuntu-22.04
+  scrape:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        # Add this to persist credentials
+        persist-credentials: true
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name:
+      
