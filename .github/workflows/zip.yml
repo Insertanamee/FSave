@@ -24,7 +24,8 @@ jobs:
     - name: Run scraping script
       run: |
         sudo apt-get install zip -y
-        zip -r stuff.zip a-level
+        zip -r stuff.zip a-level/chemistry
+        zip -r stuff.zip a-level/biology
 
     - name: Commit and push changes
       run: |
