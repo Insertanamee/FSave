@@ -21,6 +21,10 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name:
-      run | 
+    - name: Run scraping script
+      run: |
+        sudo apt-get install zip -y
+        zip -r stuff.zip a-level
+
+      
       
