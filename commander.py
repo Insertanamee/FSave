@@ -29,7 +29,7 @@ def execute_commands():
 
 
                 # Create and execute command
-                cmd = f'python scrape_content.py "{url}" "{CONSTANT}" "{path_segment} [{success_count}].html"'
+                cmd = f'python scrape_content.py "{url}" "{CONSTANT}" "{path_segment}.html"'
                 print(f"Executing: {cmd}")
                 
                 # Run command and check result
